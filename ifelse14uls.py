@@ -1,113 +1,138 @@
-#14 ülesanne
+
+import random
+
+# 14 Ãœlesanne
 inim = int(input("Sisesta inimeste arv: "))
 kohad = int(input("Sisesta bussi kohtade arv: "))
 bussid = inim // kohad
 vbuss = inim % kohad
 if vbuss:
     bussid += 1
-print(f"Vaja on {bussid} bussi, viimases bussis on {vbuss if vbuss else kohad} inimest")
+print(f"Vaja on {bussid} bussi, viimases bussis on {vbuss if vbuss else kohad} inimest.")
 
-#13 ülesanne
-soo = input("Sisesta sugu: ")
+# 13 Ãœlesanne
+soo = input("Sisesta sugu (m/n): ")
 if soo == "n":
-    print("Sobid, pole piiranguid")
-if soo == "m":
-    vanus66 = int(input("Sisesta vanus: "))
-    if 16 <= vanus66 <= 18:
-        print("Sobid")
+    print("Sobid, pole piiranguid.")
+elif soo == "m":
+    vanus = int(input("Sisesta vanus: "))
+    if 16 <= vanus <= 18:
+        print("Sobid.")
     else:
-        print("Ei sobi")
+        print("Ei sobi.")
 
-#12 ülesanne
+# 12 Ãœlesanne
 hind = float(input("Sisesta hind: "))
 if hind < 10:
-    soodustus1 = hind - (hind * 0.1)
-    print(f"Teil on soodustus 10%, nüüd teie hind on {soodustus1}")
-if hind > 10:
-    soodustus2 = hind - (hind * 0.2)
-    print(f"Teil on soodustus 20%, nüüd teie hind on {soodustus2}")
+    soodustus = hind * 0.9
+    print(f"Teil on soodustus 10%, nÃ¼Ã¼d teie hind on {soodustus:.2f}â‚¬.")
+else:
+    soodustus = hind * 0.8
+    print(f"Teil on soodustus 20%, nÃ¼Ã¼d teie hind on {soodustus:.2f}â‚¬.")
 
-#11 ülesanne
-synniaasta = int(input("Sisesta sünniaasta: "))
+# 11 Ãœlesanne
+synniaasta = int(input("Sisesta sÃ¼nniaasta: "))
 vanus = 2025 - synniaasta
 if vanus % 10 == 0:
-    print("Juubel")
+    print("Juubel!")
 else:
-    print("Pole juubel")
+    print("Pole juubel.")
 
-#10 ülesanne
+# 10 Ãœlesanne
 arv1 = float(input("Sisesta esimene arv: "))
-tehe = input("Sisesta tehe: ")
+tehe = input("Sisesta tehe (+, -, *, /): ")
 arv2 = float(input("Sisesta teine arv: "))
 if tehe == "+":
-   print(f"Vastus on {arv1 + arv2}")
+    print(f"Vastus on {arv1 + arv2}")
 elif tehe == "-":
-   print(f"Vastus on {arv1 - arv2}")
+    print(f"Vastus on {arv1 - arv2}")
 elif tehe == "*":
-   print(f"Vastus on {arv1 * arv2}")
+    print(f"Vastus on {arv1 * arv2}")
 elif tehe == "/":
-   print(f"Vastus on {arv1 / arv2}")
+    if arv2 != 0:
+        print(f"Vastus on {arv1 / arv2}")
+    else:
+        print("Viga: nulliga jagamine pole lubatud.")
 else:
-   print("Vale tehe")
+    print("Vale tehe.")
 
-#9 ülesanne
-kulg1 = float(input("Sisesta esimene külg: "))
-kulg2 = float(input("Sisesta teine külg: "))
+# 9 Ãœlesanne
+kulg1 = float(input("Sisesta esimene kÃ¼lg: "))
+kulg2 = float(input("Sisesta teine kÃ¼lg: "))
 if kulg1 == kulg2:
-    print("Ruut")
+    print("Tegemist on ruuduga.")
 else:
-    print("Ristkülik")
-#7 ülesanne
+    print("Tegemist on ristkÃ¼likuga.")
+
+#8 
+import random
+
+tooted = ["piim", "sai", "leib"]
+hinnad = {toode: round(random.uniform(0.5, 5.0), 2) for toode in tooted}
+kokku = 0
+
+print("Tere tulemast poodi!")
+for toode in tooted:
+    if input(f"Kas soovite osta {toode}? (jah/ei): ").strip().lower() == "jah":
+        kogus = int(input(f"Mitu tÃ¼kki {toode} soovite?: "))
+        hind = hinnad[toode] * kogus
+        kokku += hind
+        print(f"{toode.capitalize()}: {kogus} tk x {hinnad[toode]}â‚¬ = {hind:.2f}â‚¬")
+
+print(f"Kokku: {kokku:.2f}â‚¬")
+
+# 7 Ãœlesanne
 sugu = input("Sisesta sugu (m/n): ")
 pikkus = float(input("Sisesta pikkus: "))
 if sugu == "m":
-        if pikkus < 1.70:
-            print("Lühike mees")
-        elif pikkus <= 1.85:
-            print("Keskmine mees")
-        else:
-            print("Pikk mees")
-if sugu == "n":
-        if pikkus < 1.60:
-            print("Lühike naine")
-        elif pikkus <= 1.75:
-            print("Keskmine naine")
-        else:
-            print("Pikk naine")
+    if pikkus < 1.70:
+        print("LÃ¼hike mees")
+    elif pikkus <= 1.85:
+        print("Keskmine mees")
+    else:
+        print("Pikk mees")
+elif sugu == "n":
+    if pikkus < 1.60:
+        print("LÃ¼hike naine")
+    elif pikkus <= 1.75:
+        print("Keskmine naine")
+    else:
+        print("Pikk naine")
 
-#6 ülesanne
+
+#6 ÑŒlesanne
 pikkus = float(input("Sisesta pikkus: "))
 if pikkus > 1.6:
     print("Sa oled pikk")
 if pikkus < 1.6:
-    print("Sa oled lühike")
+    print("Sa oled lÑŒhike")
 
-#5 ülesanne
+# 5 Ãœlesanne
 temperatuur = float(input("Sisesta toatemperatuur: "))
 if temperatuur < 18:
     print("Soovitav toasoojus talvel")
 
-#4 ülesanne
+# 4 Ãœlesanne
 hind = float(input("Sisesta hind: "))
 if hind > 700:
-    soodushind = hind - (hind * 0.3)
-    print(f"Teil on soodustus 30%, nüüd teie hind on {soodushind}")
+    soodushind = hind * 0.7
+    print(f"Teil on soodustus 30%, nÃ¼Ã¼d teie hind on {soodushind:.2f}â‚¬.")
 
-#3 ülesanne
+# 3 Ãœlesanne
 laius = float(input("Sisesta laius: "))
 pikkus = float(input("Sisesta pikkus: "))
 pindala = laius * pikkus
 
 print(f"Pindala on {pindala} ruutmeetrit") 
-remont = input("Kas on vaja remonti teha? ")
-if remont == "jah":
+remont = input("Kas on vaja remonti teha? (jah/ei): ")
+if remont.lower() == "jah":
     print("Tuleb remontida")
     rmhind = float(input("Sisesta ruutmeetri hind: "))
-    print(f"Remont maksab {pindala * rmhind} eurot")
+    print(f"Remont maksab {pindala * rmhind:.2f} eurot")
 else: 
     print("Ei ole vaja remonti teha")
 
-#2 ülesanne
+#2 ulesanne
 nimi1 = input("Sisesta nimi: ")
 nimi2 = input("Sisesta nimi: ")
 nimi3 = input("Sisesta nimi: ")
@@ -115,14 +140,14 @@ nimed = {nimi1, nimi2, nimi3}
 
 if all(nimi.isalpha() for nimi in nimed):
     if {"eldar", "adri", "nastja"} == nimed:
-        print("Super, vy pinginaabrid")
+        print(" pinginaabrid")
 else:
-    print("Oneet, vy ne pinginaabrid")
+    print("ne pinginaabrid")
 
-#1 ülesanne
+#1 ulesanne
 nimi = input("Sisesta nimi: ")
 if nimi.isupper() and nimi == "JUKU":
-    print("Lähme kinno")
+    print("Lahme kinno")
     vanus = input("Sisesta vanus: ")
     if vanus.isdigit():
         vanus = int(vanus)
@@ -133,7 +158,7 @@ if nimi.isupper() and nimi == "JUKU":
         elif vanus <= 14:
             print(f"Lastepilet, sest oled {vanus} aastat vana")
         elif vanus <= 65:
-            print(f"Täispilet, sest oled {vanus} aastat vana")
+            print(f"TĞ´ispilet, sest oled {vanus} aastat vana")
         else:
             print(f"Sooduspilet, sest oled {vanus} aastat vana")
     else:
